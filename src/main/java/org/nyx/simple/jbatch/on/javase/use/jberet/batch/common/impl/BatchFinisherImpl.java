@@ -26,7 +26,7 @@ public class BatchFinisherImpl implements BatchFinisher {
             case SUCSSES:
                 jobParameter.getJobExecution().setBatchStatus(BatchStatus.COMPLETED);
                 return "COMPLETE";
-            case FAIL:
+            case FAILURE:
             default:
                 jobParameter.getJobExecution().setBatchStatus(BatchStatus.FAILED);
                 return "FAILED";
@@ -40,7 +40,7 @@ public class BatchFinisherImpl implements BatchFinisher {
             case SUCSSES:
                 //未実装
                 return "COMPLETE";
-            case FAIL:
+            case FAILURE:
             default:
                 //未実装
                 return "FAILED";

@@ -31,11 +31,11 @@ public class BatchRunner {
 
         switch (jobExecutionImpl.getBatchStatus()) {
             case COMPLETED:
-                System.out.println("success");
+                System.out.println("success.");
                 return 0;
 
             default:
-                System.out.println("fail");
+                System.out.println("failure.");
                 return 1;
         }
     }

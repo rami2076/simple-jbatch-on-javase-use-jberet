@@ -14,12 +14,7 @@
         <deltaspike.version>1.9.3</deltaspike.version>
         <skipTests>true</skipTests>
     </properties>
-
     <build>
-        
-        
-  
-        
         <plugins>
             <!-- 実行時 環境変数の設定 -->
             <plugin>
@@ -46,23 +41,30 @@
                 <!--test 実行時の環境変数-->              
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <!-- なぜか動かない。 -->
-                <!--<version>3.0.0-M5</version>-->
-                <!--<version>2.22.2</version>-->
                 <version>2.17</version>
-       
-
                 <configuration>
+                    <encoding>UTF-8</encoding>
+                    <inputEncoding>UTF-8</inputEncoding>
+                    <outputEncoding>UTF-8</outputEncoding>
+                    <argLine>-Dfile.encoding=${project.build.sourceEncoding}</argLine>
                     <systemPropertyVariables>
                         <org.apache.deltaspike.ProjectStage>UnitTest</org.apache.deltaspike.ProjectStage>
                     </systemPropertyVariables>
                     <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
+            </plugin>     
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <version>2.19.1</version>
+                <configuration>
+                    <argLine>-Dfile.encoding=${project.build.sourceEncoding}</argLine>
+                </configuration>
             </plugin>
         </plugins>
     </build>
-    
-    
+
     <dependencies>
         <dependency>
             <groupId>javax</groupId>
@@ -211,14 +213,11 @@
             <artifactId>log4j</artifactId> 
             <version>1.2.17</version>
         </dependency> 
-        <!-- twitter -->      
+        <!-- twitter -->
         <dependency>
-            <groupId>org.twitter4j</groupId>
             <artifactId>twitter4j-core</artifactId>
             <version>4.0.7</version>
-        </dependency>
-
-
-                
+            <groupId>org.twitter4j</groupId>
+        </dependency>   
     </dependencies>
 </project>

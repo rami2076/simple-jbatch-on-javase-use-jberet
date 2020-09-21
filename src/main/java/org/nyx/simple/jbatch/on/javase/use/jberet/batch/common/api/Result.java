@@ -7,6 +7,6 @@ package org.nyx.simple.jbatch.on.javase.use.jberet.batch.common.api;
 public enum Result {
     
     SUCSSES,
-    FAIL;
+    FAILURE;
     
 }

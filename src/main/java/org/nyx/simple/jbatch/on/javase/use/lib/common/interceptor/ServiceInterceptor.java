@@ -29,7 +29,7 @@ public class ServiceInterceptor {
             resultHolder.setResult(Result.SUCSSES);
 
         } else {
-            resultHolder.setResult(Result.FAIL);
+            resultHolder.setResult(Result.FAILURE);
         }
 
         return result;
